@@ -190,3 +190,6 @@ Bài C1:
 </body>
 </html>
 ```
+
+Bài C2:
+Quan điểm dùng div cho mọi thứ nghe có vẻ tiện, nhưng về kỹ thuật thì đó là một cách làm thiếu tối ưu. Thứ nhất, về SEO: các công cụ tìm kiếm như Google không chỉ đọc nội dung mà còn dựa vào cấu trúc HTML để hiểu trang. Khi bạn dùng các thẻ semantic như header, article, nav, section, bạn đang “gắn nhãn” rõ ràng cho nội dung. Điều này giúp bot hiểu đâu là nội dung chính, đâu là điều hướng, từ đó cải thiện khả năng index và xếp hạng. Nếu tất cả chỉ là div, cấu trúc trở nên “vô nghĩa” đối với máy. Thứ hai, về accessibility: các công cụ hỗ trợ như screen reader (ví dụ NVDA) dựa vào semantic HTML để đọc và điều hướng cho người khiếm thị. Khi bạn dùng nav, người dùng có thể nhảy thẳng đến menu; dùng main, họ biết đâu là nội dung chính. Nếu dùng toàn div, trải nghiệm này gần như bị phá vỡ. Ví dụ cụ thể: một danh sách bài viết dùng article cho từng bài sẽ cho phép screen reader nhận diện từng nội dung độc lập, và công cụ tìm kiếm cũng hiểu đây là các đơn vị nội dung riêng biệt. Nếu thay bằng div, cả hai lợi ích này gần như mất đi. Tuy nhiên, div vẫn rất hữu ích trong các trường hợp thuần layout hoặc styling, ví dụ như wrapper để chia grid, flexbox, hoặc nhóm các phần tử không có ý nghĩa ngữ nghĩa rõ ràng. Nói cách khác, semantic HTML không thay thế div, mà giúp bạn dùng đúng công cụ cho đúng mục đích.
