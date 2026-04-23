@@ -54,6 +54,7 @@ Sửa lại:
 
 ```
 Câu A3:
+```
 +---------------------------------------+
 | Hộp 1                                 |
 +---------------------------------------+
@@ -65,16 +66,17 @@ Câu A3:
 +---------------------------------------+
 | Hộp 3                                 |
 +---------------------------------------+
+```
 
 Giải thích:
-```
+
 Hình trên được quyết điịnh bởi 2 thuộc tính chính:
 1. Block-level elements (<div>):
   Các thẻ <div> là phần tử khối. Chúng có đặc tính tự động chiếm toàn bộ chiều ngang có sẵn và luôn ép buộc một dòng ngắt (line break) trước và sau nó.
 Vì vậy, "Hộp 1", "Hộp 2" và "Hộp 3" đều đứng trên các dòng riêng biệt.
 2. Inline elements
 Các thẻ <span> và <strong> là phần tử nội dòng. Chúng không bắt đầu một dòng mới mà chỉ chiếm không gian vừa đủ với nội dung bên trong.Chúng sẽ cố gắng xếp cạnh nhau trên cùng một dòng nếu có đủ không gian. Do đó, "Text A" đứng cạnh "Text B", và "Text C" đứng cạnh "Text D" trên cùng dòng tương ứng của chúng.
-```
+
 Câu A4:
 ```
 1. Sự khác nhau giữa <thead>, <tbody>, và <tfoot>
