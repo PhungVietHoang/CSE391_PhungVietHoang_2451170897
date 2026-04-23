@@ -1,17 +1,23 @@
 Câu A1:
-```
+
 1.
 Khi gõ https://shopee.vn vào trình duyệt và nhấn Enter, sẽ xảy ra các bước:
+
   Bước 1: Request khởi tạo: Trình duyệt nhận lệnh từ người dùng và chuẩn bị một HTTP Request.
+  
   Bước 2:Truyền tải: Request đi qua router WiFi của người dùng.
+  
   Bước 3: Đi qua mạng lưới: Request di chuyển qua nhà mạng và các hạ tầng cáp quang để đến được trung tâm dữ liệu (Data Center) của Shopee.
+  
   Bước 4: Xử lý tại Server: Server của Shopee tiếp nhận yêu cầu, xử lý logic.
+  
   Bước 5: Phản hồi (Response): Server gửi trả dữ liệu (HTML, CSS, JS,...) ngược lại qua con đường đã đi.
+  
   Bước 6: Render: Trình duyệt nhận các file này, thực hiện quy trình render (Parse HTML -> Parse CSS -> Execute JS -> Paint & Render) để hiển thị giao diện lên màn hình.
   
 2.
   <img width="687" height="455" alt="image" src="https://github.com/user-attachments/assets/d8e8061a-c906-42ad-8d2d-22807f1db296" />
-```
+
 Câu A2:
 ```
 Các lỗi Semantic cần sửa:
