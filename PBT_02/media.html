@@ -1,1 +1,104 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Media Page</title>
+  </head>
+  <body>
+    <h2>Trang Multimedia Sản Phẩm</h2>
+
+    <!-- SVG LOGO -->
+    <svg width="120" height="120">
+      <circle cx="60" cy="60" r="50" fill="lightblue" />
+      <rect x="35" y="35" width="50" height="50" fill="white" />
+    </svg>
+
+    <hr />
+
+    <!-- 3 ẢNH SẢN PHẨM -->
+    <section>
+      <h3>Sản phẩm</h3>
+
+      <figure>
+        <img
+          src="img/product1.jpg"
+          alt="Điện thoại flagship"
+          loading="lazy"
+          style="max-width: 100%; height: auto"
+        />
+        <figcaption>Smartphone cao cấp</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="img/product2.jpg"
+          alt="Laptop gaming"
+          loading="lazy"
+          style="max-width: 100%; height: auto"
+        />
+        <figcaption>Laptop gaming hiệu năng cao</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="img/product3.jpg"
+          alt="Tai nghe không dây"
+          loading="lazy"
+          style="max-width: 100%; height: auto"
+        />
+        <figcaption>Tai nghe wireless chống ồn</figcaption>
+      </figure>
+    </section>
+
+    <hr />
+
+    <!-- VIDEO YOUTUBE -->
+    <section>
+      <h3>Video giới thiệu</h3>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="YouTube video"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+        "
+        allowfullscreen
+      >
+      </iframe>
+    </section>
+
+    <hr />
+
+    <!-- VIDEO LOCAL -->
+    <section>
+      <h3>Video sản phẩm</h3>
+
+      <video controls poster="img/poster.jpg" width="600">
+        <source src="video/product.mp4" type="video/mp4" />
+        <source src="video/product.webm" type="video/webm" />
+        Trình duyệt không hỗ trợ video.
+      </video>
+    </section>
+
+    <hr />
+
+    <!-- AUDIO -->
+    <section>
+      <h3>Âm thanh giới thiệu</h3>
+
+      <audio controls>
+        <source src="audio/intro.mp3" type="audio/mpeg" />
+        Trình duyệt không hỗ trợ audio.
+      </audio>
+    </section>
+  </body>
+</html>
 
