@@ -18,3 +18,30 @@ Trường hợp 4: <input type="text" pattern="[0-9]{10}" value="abc123"> ->Khô
 Trường hợp 5: <input type="password" minlength="8" value="123"> -> Không submmit được vì minlength = "8" nhưng value = "123" = 3 < 8 -> không đạt yêu cầu  
 
 Câu A3:
+-Tại sao <label for="email"> quan trọng cho người dùng screen reader?
+
+Câu A4:
+1.loading="lazy" trong `<img>` khiến ảnh chỉ tải khi gần xuất hiện trong màn hình người dùng.  
+-Cải thiện:  
+ + Giảm thời gian tải trang ban đầu  
+ + Giảm băng thông  
+ + Tăng hiệu suất của web   
+ + Website nhiều nặng ảnh load nhanh hơn nhiều
+-Không nên dùng khi:  
+ + Ảnh cần hiển thị ngay  
+ + Ảnh quan trọng cho UX ban đầu  
+ + Layout cần load đồng bộ (tránh layout shift)  
+ + Ảnh nhỏ ít
+
+2.Nên dùng nhiều `<source>` trong thẻ `<video>` vì:  
+Web sẽ chạy từng video từ trên xuống:
+ + Tăng tương thích đa trình duyệt  
+ + Tránh lỗi video không chạy  
+ + Tối ưu hiệu suất
+Ba format video web phổ biến: MP4, WebM, MOV.
+
+3.Thuộc tính `alt` trên `<img>` dùng để: 
+ + Mô tả nội dung ảnh khi ảnh bị lỗi hoặc không load được, người dùng dùng screen reader
+ + Quan trọng cho SEO
+ + Cải thiện accessibility
+Câu A5:
