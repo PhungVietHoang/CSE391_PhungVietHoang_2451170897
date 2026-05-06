@@ -152,7 +152,7 @@ Khi một thuộc tính được đánh dấu !important, nó sẽ ghi đè lên
 
 Thứ tự ưu tiên lúc này trở thành: !important > Inline Style > ID > Class > Element.
 
-Câu B1:  
+Câu B2:  
 CSS Selectors used in this project
 
 1. Element selector
