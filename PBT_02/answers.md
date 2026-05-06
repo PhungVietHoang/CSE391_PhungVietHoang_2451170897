@@ -1,4 +1,4 @@
-Bài A1:
+Bài A1:  
 1.type="email" → Ô nhập văn bản có kiểm tra định dạng email → Dùng cho đăng ký tài khoản, nhập email nhận hóa đơn  
 2.type="password" → Ô nhập văn bản nhưng ký tự bị ẩn (****) → Dùng cho đăng nhập, tạo mật khẩu tài khoản  
 3.type="text" → Ô nhập văn bản một dòng, không validation đặc biệt → Dùng nhập tên khách hàng, địa chỉ giao hàng  
