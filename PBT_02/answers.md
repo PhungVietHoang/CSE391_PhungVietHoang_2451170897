@@ -1,4 +1,4 @@
-Câu A1:  
+### Câu A1:  
 1.type="email" → Ô nhập văn bản có kiểm tra định dạng email → Dùng cho đăng ký tài khoản, nhập email nhận hóa đơn  
 2.type="password" → Ô nhập văn bản nhưng ký tự bị ẩn (****) → Dùng cho đăng nhập, tạo mật khẩu tài khoản  
 3.type="text" → Ô nhập văn bản một dòng, không validation đặc biệt → Dùng nhập tên khách hàng, địa chỉ giao hàng  
@@ -10,23 +10,24 @@ Câu A1:
 9.type="checkbox" → Ô vuông, có thể chọn nhiều → Dùng chọn nhiều sản phẩm hoặc đồng ý điều khoản  
 10.type="file" → Nút chọn file từ máy → Dùng upload ảnh sản phẩm  hoặc upload bằng chứng thanh toán.  
 
-Câu A2:  
+### Câu A2:  
 Trường hợp 1: <input type="text" required value=""> -> Không submmit được vì thuộc tính required bắt buộc phải có giá trị không được để trống  
 Trường hợp 2: <input type="email" value="abc"> -> Không submmit được vì type=email là định dạng email, abc không có "@" và domain thiếu cấu trúc của 1 email  
 Trường hợp 3: <input type="number" min="1" max="10" value="15"> -> Không submmit được vì max = 10 nhưng lại nhập giá trị value = 15 -> Sai  
 Trường hợp 4: <input type="text" pattern="[0-9]{10}" value="abc123"> ->Không submmit được vì pattern yêu cầu đúng 10 chữ số, nhưng "abc123" vừa có chữ vừa không đủ 10 số  
 Trường hợp 5: <input type="password" minlength="8" value="123"> -> Không submmit được vì minlength = "8" nhưng value = "123" = 3 < 8 -> không đạt yêu cầu  
 
-Câu A3:
+### Câu A3:
 -Tại sao <label for="email"> quan trọng cho người dùng screen reader?
 
-Câu A4:
+### Câu A4:
 1.loading="lazy" trong `<img>` khiến ảnh chỉ tải khi gần xuất hiện trong màn hình người dùng.  
 -Cải thiện:  
  + Giảm thời gian tải trang ban đầu  
  + Giảm băng thông  
  + Tăng hiệu suất của web   
  + Website nhiều nặng ảnh load nhanh hơn nhiều
+
 -Không nên dùng khi:  
  + Ảnh cần hiển thị ngay  
  + Ảnh quan trọng cho UX ban đầu  
@@ -34,7 +35,7 @@ Câu A4:
  + Ảnh nhỏ ít
 
 2.Nên dùng nhiều `<source>` trong thẻ `<video>` vì:  
-Web sẽ chạy từng video từ trên xuống:
+-Web sẽ chạy từng video từ trên xuống:
  + Tăng tương thích đa trình duyệt  
  + Tránh lỗi video không chạy  
  + Tối ưu hiệu suất
@@ -44,4 +45,11 @@ Ba format video web phổ biến: MP4, WebM, MOV.
  + Mô tả nội dung ảnh khi ảnh bị lỗi hoặc không load được, người dùng dùng screen reader
  + Quan trọng cho SEO
  + Cải thiện accessibility
-Câu A5:
+-Ba alt tốt nhất cho các trường hợp:
++ Ảnh sản phẩm iPhone 16: alt="iPhone 16 màu đen hiển thị mặt trước với màn hình sáng"  
++ Ảnh trang trí (decorative): alt="" nên để rỗng
++ Ảnh biểu đồ doanh thu Q1/2026: alt="Biểu đồ doanh thu Q1/2026 đạt 500 triệu tăng 5% so với cùng kỳ năm ngoái"  
+### Câu A5:  
+`<img>` chỉ là 1 hình ảnh đơn lẻ, không có thêm chú thích hay thông tin gì khác -> Dùng khi ảnh chỉ cần hiển thị, không cần mô tả thêm thông tin phụ.  
+
+`<figure>` là 1 khối nội dung bao gồm cả ảnh, chú thích, các thông tin phụ -> Dùng khi ảnh có thông tin bổ sung quan trọng, ví dụ như: ảnh biểu đồ thống kê, chú thích sản phẩm.  
