@@ -152,3 +152,27 @@ Khi một thuộc tính được đánh dấu !important, nó sẽ ghi đè lên
 
 Thứ tự ưu tiên lúc này trở thành: !important > Inline Style > ID > Class > Element.
 
+Câu B1:  
+CSS Selectors used in this project
+
+1. Element selector
+- body
+- header
+- table
+- th
+- td
+- footer
+
+2. Class selector
+- .active
+
+3. ID selector
+- #intro
+
+4. Descendant selector
+- nav a
+
+5. Pseudo-class selector
+- nav a:hover
+- tr:nth-child(even)
+- tr:hover
