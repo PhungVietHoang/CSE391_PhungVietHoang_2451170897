@@ -176,3 +176,80 @@ CSS Selectors used in this project
 - nav a:hover
 - tr:nth-child(even)
 - tr:hover
+
+Câu B3:  
+Specificity Battle Analysis
+
+10 rules + specificity score
+
+1. p
+→ (0,0,1)
+
+2. p::first-letter
+→ (0,0,1)
+
+3. .text
+→ (0,1,0)
+
+4. .highlight
+→ (0,1,0)
+
+5. body p
+→ (0,0,2)
+
+6. p.text
+→ (0,1,1)
+
+7. p.text.highlight
+→ (0,2,1)
+
+8. p[class]
+→ (0,1,1)
+
+9. #demo
+→ (0,1,0)
+
+10. p#demo.text.highlight
+→ (0,3,1)
+
+---
+
+Element cuối cùng hiển thị màu gì?
+-> GOLD
+
+---
+
+Tại sao?
+
+Rule 10 có specificity cao nhất:
+- 1 ID (#demo)
+- 2 class (.text + .highlight)
+- 1 element (p)
+
+→ nên override toàn bộ rules khác
+
+---
+
+Nếu đổi thứ tự CSS file thì sao?
+
+-> Kết quả KHÔNG đổi
+
+---
+
+Giải thích:
+
+CSS có 2 yếu tố:
+1. Specificity (quan trọng nhất)
+2. Source order (chỉ khi specificity bằng nhau)
+
+→ Rule 10 luôn thắng vì specificity cao nhất  
+→ Thứ tự viết không ảnh hưởng
+
+---
+
+Kết luận
+
+- Specificity quyết định 90% kết quả
+- Order chỉ dùng khi bằng điểm
+- ID luôn mạnh hơn class
+- Combination selector mạnh hơn đơn lẻ
