@@ -18,7 +18,34 @@ Trường hợp 4: <input type="text" pattern="[0-9]{10}" value="abc123"> ->Khô
 Trường hợp 5: <input type="password" minlength="8" value="123"> -> Không submmit được vì minlength = "8" nhưng value = "123" = 3 < 8 -> không đạt yêu cầu  
 
 ### Câu A3:
--Tại sao <label for="email"> quan trọng cho người dùng screen reader?
+1.Tại sao `<label for="email">` quan trọng cho người dùng screen reader?  
++ Screen reader sẽ đọc: “Email: edit text”  
++ Người dùng không nhìn thấy giao diện vẫn hiểu input đó để làm gì  
++ Khi click vào label, con trỏ sẽ tự focus vào input
+
+2.Khi nào dùng `<fieldset>` + `<legend>`:
++ Khi nhóm các input có cùng một chủ đề  
++ Form có nhiều phần rõ ràng (thông tin cá nhân, thanh toán, giao hàng…)  
+Ví dụ:  
+```
+<fieldset>
+    <legend>Thông tin cá nhân</legend>
+
+    <label for="name">Họ tên:</label>
+    <input type="text" id="name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email">
+</fieldset>
+```
+3.aria-label dùng khi:  
++ Không thể hiển thị label trên UI  
++ Icon button (không có text)  
++ Input đặc biệt không có label trực quan  
+-Vì sao không dùng aria-label khi đã có label, vì:  
+Gây xung đột thông tin  
+Mất tính liên kết native HTML  
+Giảm maintainability    
 
 ### Câu A4:
 1.loading="lazy" trong `<img>` khiến ảnh chỉ tải khi gần xuất hiện trong màn hình người dùng.  
