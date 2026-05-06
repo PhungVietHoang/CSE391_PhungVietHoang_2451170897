@@ -1,1 +1,50 @@
+/* 1 - element */
+p {
+  color: black;
+}
+
+/* 2 - pseudo element (coi như element level) */
+p::first-letter {
+  color: gray;
+}
+
+/* 3 - class */
+.text {
+  color: blue;
+}
+
+/* 4 - class */
+.highlight {
+  color: green;
+}
+
+/* 5 - descendant */
+body p {
+  color: purple;
+}
+
+/* 6 - element + class */
+p.text {
+  color: orange;
+}
+
+/* 7 - element + 2 classes */
+p.text.highlight {
+  color: teal;
+}
+
+/* 8 - attribute selector */
+p[class] {
+  color: pink;
+}
+
+/* 9 - ID selector */
+#demo {
+  color: red;
+}
+
+/* 10 - ID + class + element (cao nhất) */
+p#demo.text.highlight {
+  color: gold;
+}
 
