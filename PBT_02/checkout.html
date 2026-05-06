@@ -1,1 +1,165 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout</title>
+  </head>
+  <body>
+    <h2>Trang đặt hàng</h2>
+
+    <form action="#" method="POST">
+      <!-- 🔎 DATALIST (BONUS) -->
+      <label for="search">Tìm sản phẩm:</label>
+      <input
+        list="products"
+        id="search"
+        name="search"
+        placeholder="Tìm sản phẩm..."
+      />
+      <datalist id="products">
+        <option value="iPhone 15"></option>
+        <option value="Laptop Gaming"></option>
+        <option value="Tai nghe Sony"></option>
+        <option value="Bàn phím cơ"></option>
+      </datalist>
+
+      <hr />
+
+      <!-- 🛒 GIỎ HÀNG -->
+      <h3>Giỏ hàng</h3>
+
+      <table border="1" width="100%">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>iPhone 15</td>
+            <td>20,000,000</td>
+            <td>1</td>
+            <td>20,000,000</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>Laptop Gaming</td>
+            <td>25,000,000</td>
+            <td>1</td>
+            <td>25,000,000</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Tai nghe Sony</td>
+            <td>3,000,000</td>
+            <td>2</td>
+            <td>6,000,000</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="4"><b>Tổng cộng</b></td>
+            <td><output>51,000,000</output></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <hr />
+
+      <!-- 💳 THANH TOÁN -->
+      <h3>Thanh toán</h3>
+
+      <p>Phương thức thanh toán:</p>
+
+      <input type="radio" id="cod" name="payment" value="cod" />
+      <label for="cod">COD</label>
+
+      <input type="radio" id="bank" name="payment" value="bank" />
+      <label for="bank">Chuyển khoản</label>
+
+      <input type="radio" id="wallet" name="payment" value="wallet" />
+      <label for="wallet">Ví điện tử</label>
+
+      <br /><br />
+
+      <label for="voucher">Mã giảm giá:</label>
+      <input
+        type="text"
+        id="voucher"
+        name="voucher"
+        placeholder="SALE2026"
+        pattern="^SALE\d{4}$"
+      />
+
+      <br /><br />
+
+      <label for="note">Ghi chú:</label><br />
+      <textarea
+        id="note"
+        name="note"
+        rows="3"
+        placeholder="Ghi chú (không bắt buộc)"
+      ></textarea>
+
+      <hr />
+
+      <!-- 🚚 GIAO HÀNG -->
+      <h3>Thông tin giao hàng</h3>
+
+      <label for="date">Ngày giao hàng:</label>
+      <input type="date" id="date" name="date" />
+
+      <script>
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById("date").min = tomorrow
+          .toISOString()
+          .split("T")[0];
+      </script>
+
+      <br /><br />
+
+      <label for="time">Khung giờ:</label>
+      <select id="time" name="time">
+        <option>Sáng (8-12h)</option>
+        <option>Chiều (14-18h)</option>
+        <option>Tối (18-21h)</option>
+      </select>
+
+      <br /><br />
+
+      <label for="delivery">Thời gian giao (ngày):</label>
+      <input
+        type="range"
+        id="delivery"
+        name="delivery"
+        min="1"
+        max="7"
+        step="1"
+      />
+
+      <br /><br />
+
+      <!-- 🎯 BONUS: METER -->
+      <label>Điểm tích lũy:</label>
+      <meter min="0" max="100" value="70"></meter>
+
+      <hr />
+
+      <!-- 🚀 SUBMIT -->
+      <button type="submit" aria-label="Xác nhận đặt hàng">
+        Xác nhận đặt hàng
+      </button>
+    </form>
+  </body>
+</html>
 
