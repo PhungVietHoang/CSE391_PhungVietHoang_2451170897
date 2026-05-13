@@ -1,1 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* LAYOUT CHÍNH DÙNG GRID */
+.grid-container {
+    display: grid;
+    /* Cột 1: 200px, Cột 2: Co giãn, Cột 3: 200px */
+    grid-template-columns: 200px 1fr 200px;
+    /* Tự động tạo hàng dựa trên nội dung */
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px;
+    min-height: 100vh;
+    padding: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* THIẾT LẬP CÁC VÙNG */
+.header, .hero, .footer {
+    /* Span từ vạch kẻ 1 đến vạch kẻ cuối cùng (-1) */
+    grid-column: 1 / -1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.header {
+    height: 70px;
+    background-color: #2c3e50;
+    color: white;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.hero {
+    height: 250px;
+    background-color: #3498db;
+    color: white;
+    flex-direction: column;
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main-content {
+    background-color: transparent;
+}
+
+/* GRID CON CHO DANH SÁCH SẢN PHẨM */
+.product-grid {
+    display: grid;
+    /* Tạo 3 cột bằng nhau, tối thiểu 200px mỗi cột */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background-color: white;
+    height: 250px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: #3498db;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.ads {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ad-box {
+    background-color: #e67e22;
+    color: white;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.footer {
+    height: 100px;
+    background-color: #34495e;
+    color: white;
+}
+
+/* TÍNH RESPONSIVE CƠ BẢN */
+@media (max-width: 900px) {
+    .grid-container {
+        /* Chuyển về 1 cột trên mobile */
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar, .ads {
+        grid-column: 1 / -1;
+        display: none; /* Ẩn sidebar/ads trên màn hình quá nhỏ để ưu tiên nội dung */
+    }
+}
