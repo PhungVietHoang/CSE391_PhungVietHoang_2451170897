@@ -1,1 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    height: 2000px; /* Tạo chiều cao để có thể scroll */
+    background-color: #f4f4f4;
+}
+
+/* 1. FIXED HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1000; /* Đảm bảo header luôn nằm trên các thành phần khác */
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* CONTAINER CHO SIDEBAR & CONTENT */
+.main-container {
+    display: flex;
+    margin-top: 80px; /* Cách ra để không bị Header che mất */
+    padding: 20px;
+    gap: 20px;
+}
+
+/* 2. STICKY SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* Sticky logic */
+    position: sticky;
+    top: 80px; /* Cách mép trên trình duyệt 80px khi scroll tới */
+}
+
+/* 3. PRODUCT CARD & ABSOLUTE BADGE */
+.content { flex: 1; }
+
+.product-card {
+    width: 200px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* Gốc tọa độ cho phần tử con absolute */
+    position: relative; 
+}
+
+.badge-hot {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e74c3c;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Tạo hình tròn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.product-img {
+    height: 150px;
+    background-color: #eee;
+    margin-bottom: 10px;
+}
+
+/* 4. FIXED SCROLL TO TOP */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.spacer {
+    margin-top: 500px;
+    color: #999;
+    font-style: italic;
+}
