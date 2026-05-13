@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
 
+    <!-- 1. Fixed Header -->
+    <header class="header">
+        <div class="logo">MY LOGO</div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <!-- 2. Sticky Sidebar -->
+        <aside class="sidebar">
+            <h3>Menu Sidebar</h3>
+            <ul>
+                <li>Danh mục 1</li>
+                <li>Danh mục 2</li>
+                <li>Danh mục 3</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content (Chứa Card để test Absolute) -->
+        <main class="content">
+            <h1>Sản phẩm nổi bật</h1>
+            
+            <!-- 3. Product Card với Badge HOT -->
+            <div class="product-card">
+                <div class="badge-hot">HOT</div>
+                <div class="product-img"></div>
+                <div class="product-info">
+                    <h4>iPhone 15 Pro Max</h4>
+                    <p>Giá: 29.990.000đ</p>
+                </div>
+            </div>
+
+            <!-- Thêm nội dung giả để trang có thể cuộn (scroll) -->
+            <div class="spacer">Cuộn xuống để kiểm tra Fixed và Sticky...</div>
+        </main>
+    </div>
+
+    <!-- 4. Scroll to top button -->
+    <button class="scroll-top">↑</button>
+
+</body>
+</html>
