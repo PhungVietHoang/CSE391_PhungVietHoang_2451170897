@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Grid Layout</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
 
+    <div class="grid-container">
+        <header class="header">
+            <div class="logo">SHOP-GRID</div>
+            <nav>Search bar | Account | Cart</nav>
+        </header>
+
+        <section class="hero">
+            <h1>MEGA SALE - 50% OFF</h1>
+            <p>Khám phá bộ sưu tập mùa hè mới nhất ngay hôm nay!</p>
+        </section>
+
+        <aside class="sidebar">
+            <h3>Bộ lọc</h3>
+            <div class="filter-group">
+                <label><input type="checkbox"> Điện thoại</label><br>
+                <label><input type="checkbox"> Laptop</label><br>
+                <label><input type="checkbox"> Phụ kiện</label>
+            </div>
+            <br>
+            <h3>Khoảng giá</h3>
+            <input type="range" min="0" max="100">
+        </aside>
+
+        <main class="main-content">
+            <div class="product-grid">
+                <div class="card">Product 1</div>
+                <div class="card">Product 2</div>
+                <div class="card">Product 3</div>
+                <div class="card">Product 4</div>
+                <div class="card">Product 5</div>
+                <div class="card">Product 6</div>
+            </div>
+        </main>
+
+        <aside class="ads">
+            <div class="ad-box">AD BANNER 1</div>
+            <div class="ad-box">AD BANNER 2</div>
+        </aside>
+
+        <footer class="footer">
+            <p>&copy; 2024 SHOP-GRID. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
