@@ -151,3 +151,7 @@ $primary-color: #3498db;
 ```
 
 - Trình duyệt không đọc được scss trình duyệt chỉ hiểu đc HTML, CSS, JS vì SCSS là ngôn ngữ tiền xử lý không phải CSS
+
+Phần B:  
+Câu B1:  
+![alt text](image.png)
