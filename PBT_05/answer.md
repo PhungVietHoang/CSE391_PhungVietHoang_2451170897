@@ -77,3 +77,77 @@ Câu A3:
 | 1400px | `1140px` |
 
 Câu A4:
+
+1. `Variables($primary-color)`: Dùng $ để lưu giá trị dùng lại nhiều lần.
+   VD:
+
+```
+$primary-color: #3498db;
+
+.button {
+  background-color: $primary-color;
+  color: white;
+}
+```
+
+2. `Nesting`: Viết CSS theo cấu trúc HTML.  
+   VD:
+
+```
+.nav {
+  background: black;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      color: yellow;
+    }
+  }
+}
+```
+
+3. `Mixins (@mixin, @include)`: Dùng để tạo "Hàm CSS"
+
+```
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  @include flex-center;
+  height: 200px;
+}
+```
+
+4. ` @extend (Inheritance)`: Kế thừa style từ class khác.  
+   VD:
+
+```
+.button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.primary-btn {
+  @extend .button;
+  background: blue;
+}
+
+.danger-btn {
+  @extend .button;
+  background: red;
+}
+```
+
+- Trình duyệt không đọc được scss trình duyệt chỉ hiểu đc HTML, CSS, JS vì SCSS là ngôn ngữ tiền xử lý không phải CSS
