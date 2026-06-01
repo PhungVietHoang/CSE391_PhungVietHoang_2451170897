@@ -1,0 +1,22 @@
+@import "variables";
+@import "mixins";
+@import "components";
+
+/* Layout */
+.container {
+  @include flex-center;
+  gap: $spacing-lg;
+}
+
+/* Responsive */
+.container {
+  flex-direction: column;
+
+  @include respond-to($breakpoint-tablet) {
+    flex-direction: row;
+  }
+
+  @include respond-to($breakpoint-desktop) {
+    gap: $spacing-lg * 2;
+  }
+}
