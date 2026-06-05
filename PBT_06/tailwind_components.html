@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài B2 - Tailwind Component Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-100 text-slate-800 p-6 md:p-12 space-y-12">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl font-black border-b pb-4 mb-8 text-slate-900">
+        TailwindCSS Component Library
+      </h1>
+
+      <section
+        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8"
+      >
+        <h2
+          class="text-xl font-bold mb-4 text-indigo-600 border-l-4 border-indigo-500 pl-2"
+        >
+          1. Buttons (Nút bấm)
+        </h2>
+        <div class="space-y-4">
+          <div class="flex flex-wrap gap-3 items-center">
+            <button
+              class="px-4 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-medium rounded-lg shadow-sm transition-all"
+            >
+              Primary
+            </button>
+            <button
+              class="px-4 py-2 bg-slate-600 hover:bg-slate-700 active:scale-95 text-white font-medium rounded-lg shadow-sm transition-all"
+            >
+              Secondary
+            </button>
+            <button
+              class="px-4 py-2 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-lg transition-all"
+            >
+              Outline
+            </button>
+            <button
+              class="px-4 py-2 bg-slate-200 text-slate-400 font-medium rounded-lg cursor-not-allowed"
+              disabled
+            >
+              Disabled
+            </button>
+            <button
+              class="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg inline-flex items-center gap-2 cursor-wait"
+            >
+              <svg
+                class="animate-spin h-4 w-4 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              Loading...
+            </button>
+          </div>
+          <div
+            class="flex flex-wrap gap-3 items-center pt-2 border-t border-dashed"
+          >
+            <button
+              class="px-2.5 py-1.5 text-xs bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md"
+            >
+              Size SM
+            </button>
+            <button
+              class="px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg"
+            >
+              Size MD
+            </button>
+            <button
+              class="px-6 py-3 text-base bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md"
+            >
+              Size LG
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8"
+      >
+        <h2
+          class="text-xl font-bold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-2"
+        >
+          2. Cards (Thẻ nội dung)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="border rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow bg-slate-50"
+          >
+            <img
+              class="w-full h-48 object-cover"
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
+              alt="Product"
+            />
+            <div class="p-4">
+              <h4 class="font-bold text-lg truncate">Tai nghe Beats Studio</h4>
+              <p class="text-slate-500 text-xs mt-1">
+                Âm bass mạnh mẽ, thiết kế đệm tai êm ái.
+              </p>
+              <div class="mt-4 flex justify-between items-center">
+                <span class="text-emerald-600 font-bold">2.450.000đ</span>
+                <span
+                  class="text-[10px] font-bold tracking-wide bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full"
+                  >CÒN HÀNG</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border rounded-xl p-5 text-center shadow-sm bg-slate-50 flex flex-col items-center"
+          >
+            <img
+              class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md mb-3"
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+              alt="Avatar"
+            />
+            <h4 class="font-bold text-lg text-slate-900">Lê Thu Hà</h4>
+            <p class="text-slate-500 text-sm font-medium">
+              UI/UX Product Designer
+            </p>
+            <div class="mt-4 flex gap-2 w-full">
+              <button
+                class="flex-1 text-xs py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg"
+              >
+                Nhắn tin
+              </button>
+              <button
+                class="flex-1 text-xs py-2 bg-white border hover:bg-slate-100 text-slate-700 font-medium rounded-lg"
+              >
+                Chi tiết
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="border-2 border-indigo-500 rounded-xl p-5 shadow-md bg-gradient-to-b from-indigo-50/50 to-white relative"
+          >
+            <span
+              class="absolute top-0 right-4 -translate-y-1/2 bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+              >POPULAR</span
+            >
+            <h4
+              class="font-bold text-sm text-indigo-600 uppercase tracking-wider"
+            >
+              Gói Doanh Nghiệp
+            </h4>
+            <div class="my-3 flex items-baseline text-slate-900">
+              <span class="text-3xl font-extrabold tracking-tight">490K</span>
+              <span class="ml-1 text-sm text-slate-500">/ tháng</span>
+            </div>
+            <ul class="space-y-2 text-xs text-slate-600 mb-5">
+              <li class="flex items-center gap-1.5">
+                <svg
+                  class="w-4 h-4 text-emerald-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                Không giới hạn dự án
+              </li>
+              <li class="flex items-center gap-1.5">
+                <svg
+                  class="w-4 h-4 text-emerald-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                Dung lượng lưu trữ 100GB
+              </li>
+            </ul>
+            <button
+              class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs rounded-lg shadow"
+            >
+              Đăng ký ngay
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8"
+      >
+        <h2
+          class="text-xl font-bold mb-4 text-indigo-600 border-l-4 border-indigo-500 pl-2"
+        >
+          3. Forms (Biểu mẫu nhập liệu)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-1"
+                >Họ và tên <span class="text-red-500">*</span></label
+              >
+              <input
+                type="text"
+                class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow placeholder-slate-400"
+                placeholder="Nhập tên của bạn..."
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-1"
+                >Lĩnh vực hoạt động</label
+              >
+              <select
+                class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              >
+                <option>Công nghệ thông tin</option>
+                <option>Kinh doanh quốc tế</option>
+                <option>Thiết kế đồ họa</option>
+              </select>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-1"
+                >Tin nhắn / Góp ý</label
+              >
+              <textarea
+                rows="2"
+                class="w-full px-3 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Nội dung ý kiến..."
+              ></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-2"
+                >Điều khoản dịch vụ</label
+              >
+              <div class="flex items-start gap-2">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  class="mt-1 h-4 w-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500"
+                />
+                <label href="#terms" class="text-xs text-slate-500 select-none"
+                  >Tôi cam kết hoàn toàn đồng ý và tuân thủ các quy tắc bảo mật
+                  dữ liệu cá nhân.</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8"
+      >
+        <h2
+          class="text-xl font-bold mb-4 text-indigo-600 border-l-4 border-indigo-500 pl-2"
+        >
+          4. Alerts (Thông báo)
+        </h2>
+        <div class="space-y-3">
+          <div
+            class="p-3.5 bg-emerald-50 border-l-4 border-emerald-500 text-emerald-800 rounded-r-lg flex justify-between items-center shadow-sm"
+          >
+            <div class="flex items-center gap-2 text-sm font-medium">
+              <svg
+                class="w-5 h-5 text-emerald-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                ></path>
+              </svg>
+              Tải dữ liệu lên máy chủ thành công!
+            </div>
+            <button class="text-emerald-500 hover:text-emerald-700">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            class="p-3.5 bg-rose-50 border-l-4 border-rose-500 text-rose-800 rounded-r-lg flex justify-between items-center shadow-sm"
+          >
+            <div class="flex items-center gap-2 text-sm font-medium">
+              <svg
+                class="w-5 h-5 text-rose-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                ></path>
+              </svg>
+              Lỗi kết nối API! Vui lòng thử lại sau.
+            </div>
+            <button class="text-rose-500 hover:text-rose-700">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"
+      >
+        <h2
+          class="text-xl font-bold mb-4 text-indigo-600 border-l-4 border-indigo-500 pl-2"
+        >
+          5. Navigation (Thanh điều hướng)
+        </h2>
+        <div class="space-y-4">
+          <div
+            class="bg-slate-900 text-white rounded-xl px-4 py-3 flex justify-between items-center shadow"
+          >
+            <span class="font-bold tracking-wider text-sm text-indigo-400"
+              >APP.CONSOLE</span
+            >
+            <div class="flex gap-4 text-xs font-medium">
+              <a href="#" class="hover:text-indigo-400">Dashboard</a>
+              <a href="#" class="hover:text-indigo-400">Analytics</a>
+              <a href="#" class="hover:text-indigo-400">Settings</a>
+            </div>
+          </div>
+          <div class="w-64 bg-slate-800 text-slate-300 rounded-xl p-3 shadow">
+            <div
+              class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-3 mb-2"
+            >
+              Hệ Thống
+            </div>
+            <div class="space-y-1">
+              <a
+                href="#"
+                class="flex items-center gap-3 px-3 py-2 text-xs bg-slate-700 text-white font-medium rounded-lg"
+                ><svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path></svg
+                >Tổng quan</a
+              >
+              <a
+                href="#"
+                class="flex items-center gap-3 px-3 py-2 text-xs hover:bg-slate-700 hover:text-white rounded-lg transition-colors"
+                ><svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  ></path></svg
+                >Tài khoản</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

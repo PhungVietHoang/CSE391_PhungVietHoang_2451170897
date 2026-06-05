@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài B1 - Tailwind Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Cấu hình tailwind mở rộng nếu cần
+      tailwind.config = {
+        darkMode: "media", // Tự động nhận diện dark mode theo hệ thống
+      };
+    </script>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans antialiased"
+  >
+    <nav
+      class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur border-b border-slate-200 dark:border-slate-700 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0 flex items-center">
+            <span
+              class="text-2xl font-black tracking-wider text-blue-600 dark:text-blue-400"
+              >CYBER.X</span
+            >
+          </div>
+          <div class="hidden md:flex space-x-8 font-medium">
+            <a
+              href="#"
+              class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-500 px-1 pt-1"
+              >Trang Chủ</a
+            >
+            <a
+              href="#"
+              class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors px-1 pt-1"
+              >Sản Phẩm</a
+            >
+            <a
+              href="#"
+              class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors px-1 pt-1"
+              >Ưu Đãi</a
+            >
+            <a
+              href="#"
+              class="text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors px-1 pt-1"
+              >Liên Hệ</a
+            >
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              class="p-2 text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 relative"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                ></path>
+              </svg>
+              <span
+                class="absolute top-1 right-1 bg-red-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center"
+                >2</span
+              >
+            </button>
+            <button
+              class="md:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="relative bg-slate-900 text-white overflow-hidden py-24 md:py-32"
+    >
+      <div class="absolute inset-0 opacity-30 mix-blend-multiply">
+        <img
+          class="w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600"
+          alt="Hero background"
+        />
+      </div>
+      <div class="relative max-w-5xl mx-auto px-4 text-center">
+        <span
+          class="text-blue-400 font-bold uppercase tracking-widest text-sm block mb-3 dark:text-blue-300"
+          >Công Nghệ Tương Lai 2026</span
+        >
+        <h1
+          class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
+        >
+          Nâng Tầm Trải Nghiệm <br /><span
+            class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"
+            >Không Gian Số</span
+          >
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+          Khám phá hệ sinh thái thiết bị phần cứng tối tân, tối ưu hóa toàn diện
+          cho kỷ nguyên AI hiệu năng cao.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#"
+            class="px-8 py-3 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 transition-all text-center"
+            >Sở Hữu Ngay</a
+          >
+          <a
+            href="#"
+            class="px-8 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold rounded-lg transition-all text-center"
+            >Tìm Hiểu Thêm</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Sản Phẩm Đang Hot</h2>
+          <p class="text-slate-500 dark:text-slate-400 mt-2">
+            Cập nhật xu hướng thiết bị gaming cao cấp mới nhất.
+          </p>
+        </div>
+        <a
+          href="#"
+          class="text-blue-600 dark:text-blue-400 font-medium hover:underline mt-4 md:mt-0 inline-flex items-center gap-1"
+        >
+          Xem tất cả sản phẩm <span>&rarr;</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-column overflow-hidden"
+        >
+          <div class="relative overflow-hidden aspect-square bg-slate-100">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500"
+              alt="Product 1"
+            />
+            <span
+              class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm"
+              >SALE</span
+            >
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate"
+              >
+                Màn Hình ROG Swift 2K
+              </h3>
+              <p
+                class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-2"
+              >
+                Tần số quét 240Hz siêu mượt dành riêng cho game thủ chuyên
+                nghiệp.
+              </p>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xl font-black text-slate-900 dark:text-white"
+                >8.490.000đ</span
+              >
+              <button
+                class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-blue-600 dark:hover:bg-blue-500 text-slate-700 dark:text-slate-300 hover:text-white dark:hover:text-white rounded-lg transition-colors"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-column overflow-hidden"
+        >
+          <div class="relative overflow-hidden aspect-square bg-slate-100">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500"
+              alt="Product 2"
+            />
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate"
+              >
+                Tai Nghe Studio Pro
+              </h3>
+              <p
+                class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-2"
+              >
+                Hỗ trợ chống ồn chủ động ANC và giả lập âm thanh vòm 7.1 chân
+                thực.
+              </p>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xl font-black text-slate-900 dark:text-white"
+                >3.150.000đ</span
+              >
+              <button
+                class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-blue-600 dark:hover:bg-blue-500 text-slate-700 dark:text-slate-300 hover:text-white dark:hover:text-white rounded-lg transition-colors"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-column overflow-hidden"
+        >
+          <div class="relative overflow-hidden aspect-square bg-slate-100">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              src="https://images.unsplash.com/photo-1527690718055-7422b1522962?w=500"
+              alt="Product 3"
+            />
+            <span
+              class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm"
+              >SALE</span
+            >
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate"
+              >
+                Bàn Phím Cơ Custom GMMK
+              </h3>
+              <p
+                class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-2"
+              >
+                Gasket mount cao cấp, hotswap 5-pin kèm sẵn switch đã lube mượt
+                mà.
+              </p>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xl font-black text-slate-900 dark:text-white"
+                >2.890.000đ</span
+              >
+              <button
+                class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-blue-600 dark:hover:bg-blue-500 text-slate-700 dark:text-slate-300 hover:text-white dark:hover:text-white rounded-lg transition-colors"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-column overflow-hidden"
+        >
+          <div class="relative overflow-hidden aspect-square bg-slate-100">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"
+              alt="Product 4"
+            />
+          </div>
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <h3
+                class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate"
+              >
+                Chuột Không Dây Superlight
+              </h3>
+              <p
+                class="text-slate-500 dark:text-slate-400 text-sm mt-1 line-clamp-2"
+              >
+                Trọng lượng siêu nhẹ 63g, cảm biến HERO đạt độ chính xác hoàn
+                hảo.
+              </p>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xl font-black text-slate-900 dark:text-white"
+                >1.950.000đ</span
+              >
+              <button
+                class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-blue-600 dark:hover:bg-blue-500 text-slate-700 dark:text-slate-300 hover:text-white dark:hover:text-white rounded-lg transition-colors"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <span class="text-xl font-bold text-white tracking-wider"
+              >CYBER.X</span
+            >
+            <p class="mt-4 text-sm leading-relaxed">
+              Hệ thống phân phối linh kiện phần cứng máy tính và Gaming Gears
+              chính hãng cao cấp.
+            </p>
+          </div>
+          <div>
+            <h4
+              class="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+            >
+              Sản Phẩm
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Linh kiện PC</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Laptop Gaming</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Ghế & Bàn Gaming</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+            >
+              Hỗ Trợ
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Trung tâm bảo hành</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Chính sách vận chuyển</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Đổi trả sản phẩm</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+            >
+              Đăng Ký
+            </h4>
+            <p class="text-sm mb-4">Nhận cập nhật mã giảm giá mới nhất.</p>
+            <div class="flex">
+              <input
+                type="email"
+                class="w-full bg-slate-800 text-white rounded-l-lg border-0 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+                placeholder="Email của bạn"
+              />
+              <button
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 rounded-r-lg text-sm font-medium"
+              >
+                Gửi
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 pt-8 text-center text-xs">
+          <p>&copy; 2026 CYBER.X Inc. Tất cả các quyền được bảo lưu.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
