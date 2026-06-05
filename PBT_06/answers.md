@@ -158,3 +158,34 @@ Tại sao không cần viết col-sm-12?
 
 * hidden $\rightarrow$ Ẩn hoàn toàn trên mobile (display: none;).
 * md:flex $\rightarrow$ Từ màn hình kích thước md ($\ge 768\text{px}$) trở lên thì kích hoạt display: flex;.
+
+## Câu C1 (10đ) — Tailwind vs CSS thuần
+
+Dưới đây là bảng so sánh phân tích dựa trên trải nghiệm lập trình thực tế khi phát triển một Component (ví dụ: **Product Card**) bằng hai phương pháp: **CSS thuần (đặt tệp .css riêng biệt)** và **TailwindCSS (Inline Utilities)**.
+
+| Tiêu chí so sánh                          | CSS Thuần (Vanilla CSS)                                                                                                                                                                                        | TailwindCSS Utilities                                                                                                                                                                                                                                                                                                          |
+| :---------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **HTML File Size**                        | **Nhỏ hơn đáng kể.** Do mã HTML chỉ chứa cấu trúc thẻ cơ bản và tên class định danh ngắn (ví dụ: `class="product-card"`).                                                                                      | **Nặng hơn rất nhiều.** Tệp HTML phình to do phải gánh một lượng lớn chuỗi ký tự utility classes phức tạp (ví dụ: `class="w-full bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition-shadow"`).                                                                                                                       |
+| **Maintainability<br>(Khả năng bảo trì)** | _ Khó duy trì khi dự án lớn dần.<br>_ Thường xuyên xảy ra hiện tượng "CSS chết" (mã không dùng đến nhưng không dám xóa vì sợ ảnh hưởng trang khác).<br>\* Phải chuyển đổi qua lại giữa file `.html` và `.css`. | _ **Rất dễ bảo trì.** Do code giao diện gắn chặt vào cấu trúc HTML. Cần sửa card nào chỉ cần tìm trúng thẻ đó để chỉnh sửa class.<br>_ Không có mã CSS thừa thãi trong hệ thống.<br>\* Nhược điểm: Giao diện dòng code trông rối mắt lúc ban đầu.                                                                              |
+| **Reusability<br>(Khả năng tái sử dụng)** | **Tái sử dụng bằng Class Name:** Chỉ cần khai báo lại tên lớp CSS đã viết sẵn vào thẻ HTML mới (ví dụ: gắn class `product-card` vào bất cứ đâu).                                                               | **Tái sử dụng linh hoạt qua 2 cách:**<br>1. _Ở tầng Component (Khuyên dùng):_ Đóng gói cấu trúc HTML đó vào các file Template/Component của các framework (React, Vue, Blade, PHP component).<br>2. _Ở tầng CSS:_ Sử dụng chỉ thị `@apply` trong file CSS tổng (Ví dụ: `.card-custom { @apply bg-white rounded-lg shadow; }`). |
+
+---
+
+## Câu C2 (10đ) — Performance & Kiến trúc
+
+1. Tại sao file Tailwind CSS cuối cùng (Production compile) lại nhỏ hơn Bootstrap CSS?
+
+- **Bootstrap** hoạt động theo mô hình **Component-First**. File CSS của Bootstrap chứa mọi biến thể cấu trúc, màu sắc được xây dựng sẵn của hàng trăm component (Nav, Modal, Card, Dropdown, Carousel...) cho dù bạn có gọi ra dùng trong dự án hay không.
+- **TailwindCSS** hoạt động theo mô hình **Atomic-CSS (Utility-First)** kết hợp cơ chế quét tự động. Khi xuất bản (Build Production), Tailwind quét toàn bộ các file dự án để tìm các class thực tế được viết. Những class nào không được dùng sẽ hoàn toàn bị loại bỏ. Do vậy, kích thước file CSS nén cuối cùng của Tailwind thường chỉ dao động từ **$10\text{KB} - 50\text{KB}$**, nhỏ hơn file Bootstrap gốc gấp nhiều lần.
+
+2. Giải thích Tailwind PurgeCSS / Tailwind JIT (Just-In-Time)
+
+- **Cách thức loại bỏ:** Công cụ lõi của TailwindCSS sẽ thực hiện việc phân tích cú pháp chuỗi văn bản tĩnh (Static Regex Scanning) trong toàn bộ mã nguồn của bạn. Nó so khớp tên các class có mặt trong file (`.html`, `.js`, `.jsx`...) với bộ từ điển cấu trúc của Tailwind. Toàn bộ các class thừa, không xuất hiện trong code thực tế sẽ bị **Purge (xóa sổ hoàn toàn)** khỏi tệp CSS kết quả.
+- **Tailwind JIT Compiler:** Từ phiên bản 3 trở đi, cơ chế JIT (Just-In-Time) thay đổi tư duy: Tailwind không tạo ra sẵn một file CSS khổng lồ nữa. Thay vào đó, khi bạn vừa gõ lệnh `px-4 shadow-sm` vào file HTML và lưu lại, trình biên dịch JIT lập tức phát hiện và **"nấu chín/sinh mã"** duy nhất hai class đó trực tiếp chèn vào CSS runtime.
+
+3. Khi nào KHÔNG nên dùng TailwindCSS? (2 Tình huống cụ thể)
+   Mặc dù rất mạnh mẽ, việc ứng dụng TailwindCSS sẽ phản tác dụng trong các trường hợp sau:
+
+- **Tình huống 1: Phát triển mã nhúng (Embed Widgets / Plugins bên thứ ba):** Nếu bạn xây dựng một Chat Widget hoặc Form đăng ký để khách hàng nhúng trực tiếp vào website của họ, việc dùng Tailwind rất nguy hiểm. Nếu website của khách hàng cũng dùng Tailwind nhưng cấu hình cấu trúc hoặc prefix khác, nó sẽ gây ra xung đột ghi đè giao diện nghiêm trọng, làm méo mó widget của bạn. CSS thuần kết hợp Shadow DOM là lựa chọn tốt nhất ở đây.
+- **Tình huống 2: Đội ngũ Dev thiếu kỹ năng kiểm soát code và không dùng Component Framework:**
+  Trong một dự án phát triển web tĩnh truyền thống quy mô lớn sử dụng mã HTML/PHP thuần thô sơ, việc không dùng các framework chia nhỏ component (như React/Vue) sẽ khiến các đoạn mã giao diện lặp đi lặp lại. Khi cần sửa một thanh Navbar xuất hiện ở 50 trang khác nhau, lập trình viên sẽ phải sửa tay thủ công chuỗi class của cả 50 trang đó. Lúc này, áp dụng CSS truyền thống hoặc SCSS rõ ràng đem lại hiệu quả quản trị cao hơn.
