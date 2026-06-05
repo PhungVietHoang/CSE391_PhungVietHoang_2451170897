@@ -1,7 +1,7 @@
 ---
 ## PHẦN A
 
-### Câu A1 (5đ) — Khái niệm `var` / `let` / `const`
+### Câu A1:
 
 #### 1. Dự đoán Output & Kết quả thực tế
 
@@ -94,4 +94,79 @@ Dưới đây là mã nguồn được tối ưu hóa, viết lại bằng cú p
 
 ```javascript
 const greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+```
+
+---
+
+## PHẦN C
+
+## Câu C1
+
+Đoạn mã gốc chứa chính xác **6 lỗi** từ cơ bản (cú pháp) đến nâng cao (lịch trình bất đồng bộ). Dưới đây là danh sách chi tiết:
+
+1. Danh sách lỗi, giải thích và cách sửa
+
+- **Lỗi 1: Sử dụng phép gán thay cho phép so sánh trong `if (giaSauGiam = 0)`**
+  - _Giải thích:_ Việc dùng duy nhất một dấu `=` đóng vai trò là một phép gán giá trị chứ không phải so sánh. Biểu thức `giaSauGiam = 0` sẽ gán số `0` vào biến và trả về kết quả là `0` (Falsy). Điều này khiến khối lệnh bên trong `if` không bao giờ được thực thi, đồng thời vô tình phá hủy giá trị thực tế của biến `giaSauGiam`.
+  - _Cách sửa:_ Đổi thành toán tử so sánh nghiêm ngặt `===` &rarr; `if (giaSauGiam === 0)`.
+
+- **Lỗi 2: Lỗi định dạng/cú pháp dính liền ở dòng kết thúc hàm `return giaSauGiam}`**
+  - _Giải thích:_ Viết dấu ngoặc kết thúc khối lệnh dính liền không có khoảng trống hoặc thiếu dấu chấm phẩy làm giảm tính minh bạch của mã nguồn (Dù cơ chế ASI của JS có thể tự sửa, nhưng đây là bad practice khi viết code).
+  - _Cách sửa:_ Thêm dấu chấm phẩy và xuống dòng rõ ràng &rarr; `return giaSauGiam;`.
+
+- **Lỗi 3: Truyền sai kiểu dữ liệu đầu vào ở dòng chạy thử `tinhGiaGiamGia("100000", 20)`**
+  - _Giải thích:_ Tham số giá bán đầu tiên đang được truyền vào dưới dạng một Chuỗi kí tự (`"100000"`) thay vì Kiểu số (`Number`). Dù JavaScript có thể tự ép kiểu khi thực hiện phép tính `*` và `/`, việc truyền sai kiểu dữ liệu gốc rất dễ gây ra các lỗi tính toán ngầm bất định.
+  - _Cách sửa:_ Đổi tham số về dạng số nguyên nguyên bản &rarr; `tinhGiaGiamGia(100000, 20)`.
+
+- **Lỗi 4: Thiếu cơ chế kiểm tra (Validate) dữ liệu đầu vào của hàm**
+  - _Giải thích:_ Nếu người dùng vô tình truyền vào một chuỗi chữ không thể chuyển đổi (ví dụ: `"abc"`), phép tính toán học sẽ trả về giá trị lỗi `NaN` (Not a Number). Hàm cần có bộ lọc ngăn chặn ngay từ đầu.
+  - _Cách sửa:_ Dùng `typeof` hoặc `isNaN()` để lọc dữ liệu ở đầu hàm.
+
+- **Lỗi 5: Lạm dụng từ khóa `var` hoặc thiếu khai báo an toàn cho biến vòng lặp `for`**
+  - _Giải thích:_ Khai báo `var i = 0` khiến phạm vi hoạt động của biến `i` bị rò rỉ ra ngoài toàn cục (Global Scope), không bị giới hạn trong phạm vi của vòng lặp `for`.
+  - _Cách sửa:_ Đổi từ khóa khai báo sang `let`.
+
+2. Giải thích lỗi "ẩn" liên quan đến `var` trong vòng lặp kết hợp `setTimeout`
+
+- **Hiện tượng lỗi:** Đoạn mã gốc sau khi kết thúc 1000ms sẽ in ra màn hình 5 dòng chữ giống hệt nhau là: **`Item 5`**, thay vì chạy tuần tự từ `Item 0` đến `Item 4`.
+- **Nguyên nhân cốt lõi:** 1. Biến khai báo bằng `var` không sở hữu **Block Scope** (Phạm vi khối) mà mang **Function/Global Scope**. Do đó, chỉ có **duy nhất một ô nhớ** của biến `i` được tạo ra và dùng chung cho cả 5 lượt lặp. 2. Hàm `setTimeout` là một tác vụ bất đồng bộ (Asynchronous). Khi các hàm callback bên trong nó được xếp vào hàng đợi chạy sau 1 giây, vòng lặp `for` đồng bộ đã thực thi xong toàn bộ. Tại thời điểm vòng lặp kết thúc, giá trị của biến `i` chung đã tăng lên đến `5`. Khi các hàm callback được kích hoạt để in log, chúng cùng nhìn vào biến `i` chung này và đều đọc ra giá trị là `5`.
+- **Cách khắc phục bằng `let`:** Thay thế `var i = 0` bằng `let i = 0`. Vì `let` có đặc tính **Block Scope**, cứ mỗi một vòng lặp chạy qua, hệ thống sẽ tạo ra một phạm vi khối hoàn toàn độc lập và "đóng băng" (capture) giá trị của `i` tại đúng thời điểm đó dành riêng cho `setTimeout`.
+
+3. Đoạn mã hoàn chỉnh sau khi đã sửa toàn bộ lỗi (Refactored)
+
+```javascript
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+  // 1. Kiểm tra validate dữ liệu đầu vào nghiêm ngặt
+  if (typeof giaBan !== "number" || typeof phanTramGiam !== "number") {
+    return "Lỗi: Đầu vào phải là số";
+  }
+  if (phanTramGiam < 0 || phanTramGiam > 100) {
+    return "Phần trăm giảm không hợp lệ";
+  }
+
+  const giamGia = (giaBan * phanTramGiam) / 100;
+  const giaSauGiam = giaBan - giamGia;
+
+  // Sửa lỗi gán (=) thành toán tử so sánh nghiêm ngặt (===)
+  if (giaSauGiam === 0) {
+    console.log("Sản phẩm miễn phí!");
+  }
+
+  return giaSauGiam;
+}
+
+// Chạy thử nghiệm 1: Đổi chuỗi "100000" thành số 100000
+const gia = tinhGiaGiamGia(100000, 20);
+console.log("Giá sau giảm: " + gia + "đ");
+
+// Chạy thử nghiệm 2: Vượt quá 100%
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log("Giá: " + gia2);
+
+// Sửa lỗi ẩn: Thay 'var' thành 'let' để tạo Block Scope chính xác cho tác vụ bất đồng bộ
+for (let i = 0; i < 5; i++) {
+  setTimeout(function () {
+    console.log("Item " + i);
+  }, 1000);
+}
 ```
