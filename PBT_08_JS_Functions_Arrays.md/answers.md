@@ -106,3 +106,85 @@ console.log(name, price, ram, color);
 console.log(specs);
 // ➔ Output: ReferenceError: specs is not defined
 ```
+
+# PHẦN C:
+
+## Câu C1 (10đ) — Refactor Code (Tối ưu hóa mã nguồn)
+
+### 1. Phân tích các kỹ thuật áp dụng trong quá trình Refactor:
+
+- **`filter()`**: Thay thế hoàn toàn cho 2 khối lệnh điều kiện `if` lồng nhau phức tạp để sàng lọc ra các đơn hàng thỏa mãn điều kiện (`status === "completed"` và `total > 100000`).
+- **`map()`**: Loại bỏ vòng lặp `for` thủ công và việc tạo đối tượng rỗng. Kết hợp kỹ thuật **Object Destructuring** lấy trực tiếp `{ id, customer, total }`, đồng thời tính toán gộp các thuộc tính phái sinh `discount` và `finalTotal`.
+- **`sort()`**: Thay thế cho thuật toán sắp xếp nổi bọt (Bubble Sort) thủ công bằng 2 vòng lặp lồng nhau rườm rà, thực hiện sắp xếp giảm dần theo thuộc tính `finalTotal`.
+
+### 2. Mã nguồn sau khi Refactor hoàn chỉnh:
+
+```javascript
+function processOrders(orders) {
+  return orders
+    .filter(({ status, total }) => status === "completed" && total > 100000)
+    .map(({ id, customer, total }) => ({
+      id,
+      customer,
+      total,
+      discount: total * 0.1,
+      finalTotal: total * 0.9,
+    }))
+    .sort((a, b) => b.finalTotal - a.finalTotal);
+}
+
+// --- KIỂM THỬ THỰC TẾ (TEST CASE) ---
+const ordersSample = [
+  { id: 1, customer: "An", total: 150000, status: "completed" },
+  { id: 2, customer: "Bình", total: 50000, status: "completed" },
+  { id: 3, customer: "Chi", total: 200000, status: "pending" },
+  { id: 4, customer: "Dũng", total: 300000, status: "completed" },
+];
+console.log(processOrders(ordersSample));
+```
+
+## Câu C2:
+
+```
+const miniArray = {
+    // 1. Tự viết hàm map: Trả về một mảng mới có số phần tử bằng mảng cũ
+    map(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            result.push(fn(arr[i], i, arr));
+        }
+        return result;
+    },
+
+    // 2. Tự viết hàm filter: Sàng lọc phần tử dựa trên điều kiện logic (đúng/sai) từ hàm callback
+    filter(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    },
+
+    // 3. Tự viết hàm reduce: Tích lũy mảng thành một giá trị đơn nhất
+    reduce(arr, fn, initialValue) {
+        // Xử lý trường hợp có truyền hoặc không truyền giá trị khởi tạoban đầu
+        let accumulator = initialValue !== undefined ? initialValue : arr[0];
+        let startIndex = initialValue !== undefined ? 0 : 1;
+
+        for (let i = startIndex; i < arr.length; i++) {
+            accumulator = fn(accumulator, arr[i], i, arr);
+        }
+        return accumulator;
+    }
+};
+
+// --- HỆ THỐNG KỊCH BẢN KIỂM THỬ BẮT BUỘC (PASS 100%) ---
+console.log("miniArray.map:", miniArray.map([1, 2, 3], x => x * 2));         // → [2, 4, 6]
+console.log("miniArray.filter:", miniArray.filter([1, 2, 3, 4], x => x > 2)); // → [3, 4]
+console.log("miniArray.reduce:", miniArray.reduce([1, 2, 3, 4], (a, b) => a + b, 0)); // → 10
+
+// Kiểm thử biên với reduce khi không truyền giá trị initialValue
+console.log("Reduce không có init:", miniArray.reduce([1, 2, 3, 4], (a, b) => a + b)); // → 10
+```
