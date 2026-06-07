@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ Thống Kiểm Tra Dữ Liệu Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <h2>Đăng Ký Tài Khoản</h2>
+      <form id="regForm">
+        <div class="form-group">
+          <label>Họ và Tên</label>
+          <input type="text" id="username" placeholder="Nhập từ 2 - 50 ký tự" />
+          <span class="status-icon"></span>
+          <div class="error-msg">
+            Tên phải nằm trong khoảng từ 2 đến 50 ký tự.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="example@domain.com" />
+          <div class="error-msg">Định dạng Email không hợp lệ.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Mật Khẩu</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Nhập mật khẩu an toàn"
+          />
+          <div class="strength-meter">
+            <div id="strengthBar" class="strength-bar"></div>
+          </div>
+          <div id="strengthText" class="strength-text"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Xác Nhận Mật Khẩu</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Nhập lại mật khẩu"
+          />
+          <div class="error-msg">Mật khẩu xác nhận không trùng khớp.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Số Điện Thoại</label>
+          <input
+            type="text"
+            id="phone"
+            placeholder="Ví dụ: 0901-234-567"
+            maxlength="12"
+          />
+          <div class="error-msg">Số điện thoại phải chứa đúng 10 chữ số.</div>
+        </div>
+
+        <button type="submit" id="submitBtn" disabled>Đăng Ký Ngay</button>
+      </form>
+    </div>
+
+    <div id="successModal" class="modal" style="display: none">
+      <div class="modal-card">
+        <h3>🎉 Đăng Ký Thành Công!</h3>
+        <div id="modalSummary"></div>
+        <button id="closeModalBtn" style="margin-top: 15px; padding: 8px 16px">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
