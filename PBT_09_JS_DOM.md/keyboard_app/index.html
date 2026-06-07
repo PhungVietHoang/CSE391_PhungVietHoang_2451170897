@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ Thống Phím Tắt & Khả Năng Tiếp Cận Accessibility</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-wrap">
+      <header>
+        <h1>Trang Trải Nghiệm Phím Tắt</h1>
+        <p class="guide-tip">
+          Nhấn <kbd>Ctrl</kbd> + <kbd>K</kbd> để kích hoạt Command Palette
+          nhanh.
+        </p>
+      </header>
+
+      <main class="gallery-section">
+        <h2>
+          Thư Viện Ảnh (Phím mũi tên <kbd>←</kbd> <kbd>→</kbd> hoặc phím số
+          <kbd>1</kbd>-<kbd>3</kbd>)
+        </h2>
+        <div
+          class="gallery-box"
+          id="galleryBox"
+          tabindex="0"
+          aria-label="Thư viện hình ảnh tương tác"
+        >
+          <img id="displayImg" src="" alt="Hình ảnh thư viện" />
+          <div class="caption-bar" id="imgCaption"></div>
+        </div>
+        <div class="gallery-controls">
+          <button id="playBtn" aria-label="Bật tắt trình chiếu tự động">
+            Chạy Slideshow (<kbd>Space</kbd>)
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <div
+      id="cmdPalette"
+      class="palette-overlay"
+      style="display: none"
+      aria-hidden="true"
+      role="dialog"
+      aria-label="Bảng lệnh điều khiển nhanh"
+    >
+      <div class="palette-card">
+        <input
+          type="text"
+          id="cmdInput"
+          placeholder="Nhập từ khóa tìm kiếm lệnh (Ví dụ: Dark, Alert...)"
+          autocomplete="off"
+        />
+        <ul id="cmdResultList" role="listbox"></ul>
+      </div>
+    </div>
+  </body>
+</html>
