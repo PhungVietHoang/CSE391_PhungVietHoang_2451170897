@@ -1,5 +1,7 @@
 # PBT 10
 
+## PHẦN A — KIỂM TRA ĐỌC HIỂU
+
 ### Câu A1
 
 Output mong đợi:
@@ -56,7 +58,7 @@ async function getData() {
 
 4. `try...catch` — Bắt các lỗi sau:
    - lỗi mạng (network error) khi `fetch` không thể kết nối;
-   - lỗi do `throws` khi status không ok (`throw new Error(...)`);
+   - lỗi do `throw` khi status không ok (`throw new Error(...)`);
    - lỗi parse JSON nếu nội dung trả về không hợp lệ;
    - các lỗi runtime khác trong khối `try`.
 

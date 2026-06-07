@@ -1,0 +1,142 @@
+:root {
+  --bg: #f4f7ff;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --error: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(180deg, #e0efff 0%, #f9fafb 100%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 24px;
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+h1,
+h2 {
+  margin: 0 0 16px;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-form input {
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  font-size: 1rem;
+}
+
+.search-form button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status {
+  min-height: 44px;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+.status.error {
+  color: var(--error);
+}
+
+.hidden {
+  display: none;
+}
+
+.weather-card {
+  background: #eef6ff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.weather-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(37, 99, 235, 0.12);
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.weather-grid div {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.weather-grid span {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.history {
+  margin-top: 12px;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.history-list button {
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: white;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.history-list button:hover {
+  background: #eef2ff;
+}
